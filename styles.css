@@ -1,0 +1,328 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    text-rendering: optimizeLegibility !important;
+    background: #f3f3f5;
+}
+
+.body-fixed {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    top: auto;
+    left: auto;
+}
+
+body, html {
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+#product-list {
+    margin-top: 120px;
+    position: relative;
+}
+
+.site-header {
+    position: fixed;
+    padding: 30px 0;
+    display: flex;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    transition: 0.5s;
+    border-bottom: 1px solid transparent;
+}
+
+.site-header.sticky_head {
+    background: rgb(255 255 255 / 80%);
+    padding: 20px 0;
+    border-color: #f2f2f2;
+    backdrop-filter: blur(20px);
+}
+
+/* gem: Ajustar el botón del carrito para que no se estire */
+#cart-btn {
+    width: auto; /* Cambiar a ancho automático */
+    height: 40px; /* Altura ajustada para un mejor aspecto */
+    display: flex; /* Alinear el contenido */
+    align-items: center; /* Centrar verticalmente el contenido */
+    margin-left: auto; /* Alinear a la derecha */
+}
+
+#cart-sidebar {
+    width: 300px;
+    background-color: #f8f9fa;
+    position: fixed;
+    right: -300px;
+    top: 90px;
+    height: calc(100% - 80px);
+    padding: 20px;
+    transition: 0.3s ease;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+/* gem: Cambios en el estilo de las tarjetas */
+.card {
+    width: 90%; /* Ajusta el ancho de la tarjeta */
+    max-width: 350px; /* Limita el ancho máximo */
+    height: 350px; /* Altura fija para las tarjetas */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 10px auto; /* Centra la tarjeta y reduce el margen */
+    padding: 15px; /* Espaciado interno */
+    transition: transform 0.2s; /* Efecto de transición al pasar el mouse */
+}
+
+.card:hover {
+    transform: scale(1.02); /* Efecto de zoom al pasar el mouse */
+}
+
+.card-img-top {
+    padding: 20px;
+    height: 250px; /* Mantiene la altura de la imagen */
+    object-fit: contain; /* Asegura que la imagen se ajuste sin cortarse */
+}
+
+.card-title {
+    font-size: 15px;
+    font-family: Poppins;
+    font-weight: 600;
+    text-align: center; /* Centra el texto del título */
+}
+
+.card-text {
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center; /* Centra el texto del precio */
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el contenido */
+    flex-grow: 1;
+}
+
+/* gem: Estilo de botones más estético y pequeño */
+.card-body button {
+    width: 100%; /* Botones ocupan todo el ancho de la tarjeta */
+    text-align: center;
+    margin: 5px 0;
+    padding: 8px; /* Menor padding para botones más pequeños */
+    font-size: 14px; /* Tamaño de fuente más pequeño */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s, color 0.3s; /* Transición suave */
+}
+
+.card-body button:hover {
+    background-color: #0a2ff1;
+    color: #ffffff;
+}
+
+.modal-title {
+    font-family: Poppins;
+    font-weight: 700;
+}
+
+.modal-body h5 {
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.row {
+    margin: 0 -15px;
+}
+
+.col-md-4 {
+    padding: 0 15px;
+}
+
+#cart-sidebar.active {
+    right: 0;
+}
+
+#cart-items {
+    list-style-type: none;
+    padding: 0;
+}
+
+#cart-items li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#cart-sidebar #close-cart {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.btn-outline-dark:hover {
+    background-color: #0a2ff1;
+}
+
+.swal2-title {
+    font-family: Poppins;
+}
+
+button.swal2-confirm {
+    background-color: #0a2ff1;
+}
+
+.main-navigation {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.main-navigation .menu li {
+    display: inline-block;
+    position: relative;
+    margin: 0 6px;
+}
+
+.main-navigation .menu li:hover > ul, .main-navigation .menu li.focus > ul {
+    opacity: 1;
+    margin-top: 6px;
+    visibility: visible;
+}
+
+a {
+    background-color: transparent;
+    text-decoration: none !important;
+    outline: none !important;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-navigation .menu ul a {
+    width: 200px;
+}
+
+.main-navigation .menu li:hover > ul, .main-navigation .menu li.focus > ul {
+    left: auto;
+}
+
+.main-navigation .menu li a {
+    display: flex;
+    transition: 0.3s;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    color: #0d0d25;
+    text-transform: capitalize;
+    font-weight: 500;
+    padding: 5px 18px;
+    border-radius: 30px;
+}
+
+.main-navigation .menu li a:hover, .main-navigation .menu li .active-menu, .main-navigation .menu .sub-menu li .active-sub-menu {
+    color: #0a2ff1;
+    background: #f3f3f5;
+}
+
+.header-right {
+    margin-left: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.header-btn {
+    width: 40px; /* Ancho del botón */
+    height: 40px; /* Altura del botón */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    transition: background 0.3s, transform 0.2s; /* Incorporado el efecto de transformación */
+}
+
+.header-btn:hover {
+    background: rgba(10, 47, 241, 0.1); /* Fondo al pasar el mouse */
+    transform: scale(1.1); /* Efecto de aumento al pasar el mouse */
+}
+
+.header-search-form {
+    display: flex; /* Asegura que la barra ocupe el ancho completo */
+    width: 100%; /* Asegura que la barra ocupe el ancho completo */
+}
+
+/* Ajustes a la barra de búsqueda */
+.header-search-form .input-group {
+    width: 100%; /* Asegura que el grupo ocupe todo el ancho */
+}
+
+.header-search-form .form-input {
+    height: 40px; /* Ajustar altura para que coincida con el diseño */
+    padding: 5px 10px; /* Espaciado interno */
+    flex-grow: 1; /* Permite que la barra ocupe todo el espacio disponible */
+    border-radius: 10px 0 0 10px; /* Bordes redondeados para la izquierda */
+    border: none;
+    background: #f8f8f8;
+    box-shadow: inset 6px 6px 8px #dadada, inset -6px -6px 8px #ffffff;
+}
+
+.header-search-form .input-group-text {
+    border-radius: 0 10px 10px 0; /* Bordes redondeados para la derecha */
+    cursor: pointer; /* Cambiar cursor para indicar que es clickeable */
+}
+
+.header-search-form button {
+    height: 40px; /* Asegura que el botón tenga la misma altura que la barra */
+    margin-left: 5px; /* Espacio entre la barra y el botón */
+}
+
+.form-input::placeholder {
+    color: rgba(70, 69, 71, 0.7);
+}
+
+.uil {
+    color: #0a2ff1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+}
+
+.uil uil-user-circle {
+    width: 50px;
+    height: 50px;
+}
+
+/* Ajustes para pantallas grandes como laptops y desktops */
+@media (min-width: 1500px) {
+    .container {
+        max-width: 1368px;
+    }
+}
+
+@media (min-width: 2100px) {
+    .container {
+        max-width: 1400px;
+    }
+    p, body, button, input {
+        font-size: 18px;
+        line-height: 1.5;
+    }
+}
