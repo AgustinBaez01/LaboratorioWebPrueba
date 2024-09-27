@@ -47,7 +47,7 @@ img {
     backdrop-filter: blur(20px);
 }
 
-/* gem: Ajustar el botón del carrito para que no se estire */
+/* Ajustar el botón del carrito para que no se estire */
 #cart-btn {
     width: auto; /* Cambiar a ancho automático */
     height: 40px; /* Altura ajustada para un mejor aspecto */
@@ -69,7 +69,7 @@ img {
     z-index: 1000;
 }
 
-/* gem: Cambios en el estilo de las tarjetas */
+/* Cambios en el estilo de las tarjetas */
 .card {
     width: 90%; /* Ajusta el ancho de la tarjeta */
     max-width: 350px; /* Limita el ancho máximo */
@@ -113,7 +113,7 @@ img {
     flex-grow: 1;
 }
 
-/* gem: Estilo de botones más estético y pequeño */
+/* Estilo de botones más estético y pequeño */
 .card-body button {
     width: 100%; /* Botones ocupan todo el ancho de la tarjeta */
     text-align: center;
@@ -196,7 +196,8 @@ button.swal2-confirm {
     margin: 0 6px;
 }
 
-.main-navigation .menu li:hover > ul, .main-navigation .menu li.focus > ul {
+.main-navigation .menu li:hover > ul,
+.main-navigation .menu li.focus > ul {
     opacity: 1;
     margin-top: 6px;
     visibility: visible;
@@ -218,7 +219,8 @@ ul {
     width: 200px;
 }
 
-.main-navigation .menu li:hover > ul, .main-navigation .menu li.focus > ul {
+.main-navigation .menu li:hover > ul,
+.main-navigation .menu li.focus > ul {
     left: auto;
 }
 
@@ -235,7 +237,9 @@ ul {
     border-radius: 30px;
 }
 
-.main-navigation .menu li a:hover, .main-navigation .menu li .active-menu, .main-navigation .menu .sub-menu li .active-sub-menu {
+.main-navigation .menu li a:hover,
+.main-navigation .menu li .active-menu,
+.main-navigation .menu .sub-menu li .active-sub-menu {
     color: #0a2ff1;
     background: #f3f3f5;
 }
@@ -264,7 +268,9 @@ ul {
 
 .header-search-form {
     display: flex; /* Asegura que la barra ocupe el ancho completo */
-    width: 100%; /* Asegura que la barra ocupe el ancho completo */
+    width: auto; /* Cambiar a ancho automático */
+    max-width: 400px; /* Ancho máximo para la barra de búsqueda */
+    margin-right: 10px; /* Espacio a la derecha para el botón */
 }
 
 /* Ajustes a la barra de búsqueda */
@@ -282,11 +288,7 @@ ul {
     box-shadow: inset 6px 6px 8px #dadada, inset -6px -6px 8px #ffffff;
 }
 
-.header-search-form .input-group-text {
-    border-radius: 0 10px 10px 0; /* Bordes redondeados para la derecha */
-    cursor: pointer; /* Cambiar cursor para indicar que es clickeable */
-}
-
+/* Asegura que el botón tenga la misma altura que la barra */
 .header-search-form button {
     height: 40px; /* Asegura que el botón tenga la misma altura que la barra */
     margin-left: 5px; /* Espacio entre la barra y el botón */
@@ -325,4 +327,30 @@ ul {
         font-size: 18px;
         line-height: 1.5;
     }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 0; /* Reduce el padding en pantallas pequeñas */
+    }
+    
+    .header-search-form {
+        width: auto; /* Asegura que la barra de búsqueda ocupe todo el ancho */
+        margin-bottom: 10px; /* Espacio inferior para la barra de búsqueda */
+    }
+    
+    .header-right {
+        margin-left: 0; /* Elimina el margen a la izquierda en pantallas pequeñas */
+        justify-content: space-between; /* Espaciado entre íconos */
+    }
+}
+
+/* Mejora el aspecto del botón del carrito en pantallas pequeñas */
+#cart-btn {
+    width: auto; /* Asegura que el ancho sea automático */
+    margin-left: 0; /* Elimina margen en pantallas pequeñas */
+}
+
+.navbar-nav .nav-link {
+    text-align: center; /* Centra el texto de los enlaces */
 }

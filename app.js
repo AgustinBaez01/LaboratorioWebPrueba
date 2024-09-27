@@ -7,8 +7,8 @@ async function fetchProducts() {
     try {
         const res = await fetch('https://fakestoreapi.com/products');
         products = await res.json();
-        console.log(products); // Verifica si los productos se cargan correctamente
-        renderProducts(products); // Renderiza productos después de cargarlos
+        console.log(products);
+        renderProducts(products);
     } catch (error) {
         console.error("Error al cargar los productos:", error);
     }
@@ -37,29 +37,28 @@ function renderProducts(productsToRender) {
         `;
         productList.appendChild(productCard);
 
-        // Agregar evento al hacer clic en la tarjeta
+        // Agregar eventos
         productCard.addEventListener('click', () => {
             showProductDetails(product);
         });
 
-        // Mantener el evento de clic para el botón "Ver detalles"
         productCard.querySelector('.btn-primary').addEventListener('click', (event) => {
-            event.stopPropagation(); // Evitar que se dispare el evento de la tarjeta
+            event.stopPropagation();
             showProductDetails(product);
         });
 
         productCard.querySelector('.btn-success').addEventListener('click', (event) => {
-            event.stopPropagation(); // Evitar que se dispare el evento de la tarjeta
+            event.stopPropagation();
             addToCart(product);
             Swal.fire('Producto agregado al carrito', '', 'success');
         });
     });
 }
 
-// Función para mostrar detalles del producto en un modal
+// Función para mostrar detalles del producto
 function showProductDetails(product) {
     const modalBody = document.getElementById('product-modal').querySelector('.modal-body');
-    modalBody.innerHTML = ''; // Limpiar el contenido anterior
+    modalBody.innerHTML = '';
 
     const productImage = document.createElement('img');
     productImage.src = product.image;
@@ -74,7 +73,7 @@ function showProductDetails(product) {
     productDescription.textContent = product.description;
 
     const productPrice = document.createElement('p');
-    productPrice.textContent = `$${product.price}`; // Corregido
+    productPrice.textContent = `$${product.price}`;
 
     modalBody.append(productImage, productTitle, productDescription, productPrice);
 
@@ -106,10 +105,10 @@ function addToCart(product) {
 function updateCartCount() {
     const cartCount = document.getElementById('cart-count');
     const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
-    cartCount.textContent = `${totalQuantity}`; // Corregido
+    cartCount.textContent = `(${totalQuantity})`;
 }
 
-// Inicializar el contador cuando se carga la página
+// Inicializar el contador
 updateCartCount();
 
 // Funciones del carrito
@@ -143,7 +142,7 @@ function renderCartItems() {
     const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
     const totalLi = document.createElement('li');
     totalLi.classList.add('list-group-item', 'active');
-    totalLi.textContent = `Total: $${total.toFixed(2)}`; // Corregido
+    totalLi.textContent = `Total: $${total.toFixed(2)}`;
     cartItemsList.appendChild(totalLi);
 }
 
@@ -192,19 +191,15 @@ checkoutBtn.addEventListener('click', () => {
 // Función para buscar productos
 function searchProducts() {
     const searchTerm = document.getElementById('search-input').value.toLowerCase();
-    const filteredProducts = products.filter(product => 
+    const filteredProducts = products.filter(product =>
         product.title.toLowerCase().includes(searchTerm)
     );
     renderProducts(filteredProducts);
 }
 
-// Evento para buscar al presionar el botón
+// Evento para buscar
 document.getElementById('search-button').addEventListener('click', searchProducts);
-
-// Evento para buscar al cambiar el valor del input
 document.getElementById('search-input').addEventListener('input', searchProducts);
-
-// Evento para buscar al presionar Enter
 document.getElementById('search-input').addEventListener('keypress', (event) => {
     if (event.key === 'Enter') {
         searchProducts();
@@ -220,29 +215,4 @@ categoryLinks.forEach(link => {
         const filteredByCategory = products.filter(product => product.category === category);
         renderProducts(filteredByCategory);
     });
-});
-
-// Funcionalidad para el botón de búsqueda
-document.getElementById('search-button').addEventListener('click', function() {
-    const query = document.getElementById('search-input').value;
-    console.log('Buscar:', query); // Aquí puedes reemplazar con la lógica deseada
-});
-
-// Funcionalidad para el botón de perfil
-document.getElementById('profile-button').addEventListener('click', function() {
-    console.log('Ir al perfil');
-});
-
-// Mostrar menú de perfil
-document.getElementById('profile-btn').addEventListener('click', function() {
-    const menu = document.getElementById('profile-menu');
-    menu.style.display = (menu.style.display === 'none' || menu.style.display === '') ? 'block' : 'none';
-});
-
-// Opcional: cerrar el menú si se hace clic fuera de él
-window.addEventListener('click', function(event) {
-    const menu = document.getElementById('profile-menu');
-    if (!menu.contains(event.target) && event.target.id !== 'profile-button') {
-        menu.style.display = 'none';
-    }
 });

@@ -4,68 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ISTEA E-commerce</title>
-    <!-- CSS Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
-    <!-- Iconos -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <!-- Fuentes -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Iconos Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
     <style>
         footer {
-            font-size: 0.9rem; /* Tamaño de fuente más pequeño */
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-white py-4 fixed-top">
-        <div class="container">
-            <div class="header-logo">
-                <a href="index.html">
-                    <img src="./images/icons/logotype-istea-fill-blue.png" width="120" height="32" alt="Logo">
-                </a>
-            </div>
-
-            <div class="col-lg-10">
-                <div class="main-navigation d-flex align-items-center">
-                    <!-- Sección de búsqueda -->
-                    <div class="header-search-form me-3">
-                        <div class="input-group">
-                            <input type="text" class="form-control form-input" placeholder="Buscar productos..." id="search-input">
-                            <span class="input-group-text" id="search-button">
-                                <i class="bi bi-search"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <nav class="header-menu">
-                        <ul class="menu food-nav-menu d-flex mb-0">
-                            <li class="me-3"><a href="index.html">Inicio</a></li> <!-- Enlace actualizado -->
-                            <li class="me-3"><a href="#nosotros">Nosotros</a></li>
-                            <li class="me-3 dropdown">
-                                <a href="#" id="category-filter" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Categorías</a>
-                                <ul id="categories-dropdown" class="dropdown-menu">
-                                    <li><a href="#" class="category" data-category="men's clothing">Ropa de Hombre</a></li>
-                                    <li><a href="#" class="category" data-category="women's clothing">Ropa de Mujer</a></li>
-                                    <li><a href="#" class="category" data-category="jewelery">Joyería</a></li>
-                                    <li><a href="#" class="category" data-category="electronics">Electrónica</a></li>
-                                </ul>
-                            </li>
-                            <li class="me-3"><a href="#contacto">Contacto</a></li> <!-- Enlace de contacto -->
-                        </ul>
-                    </nav>
-                    <div class="header-right d-flex align-items-center">
-                        <a href="javascript:void(0)" class="header-btn me-2" title="Perfil">
-                            <i class="bi bi-person-fill"></i> <!-- Ícono de perfil -->
-                        </a>
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img src="./images/icons/logotype-istea-fill-blue.png" width="120" height="32" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="header-search-form me-3">
+                    <div class="input-group">
+                        <input type="text" class="form-control form-input" placeholder="Buscar productos..." id="search-input">
+                        <span class="input-group-text" id="search-button">
+                            <i class="bi bi-search"></i>
+                        </span>
                     </div>
                 </div>
-            </div>
-
-            <div class="order-lg-2 nav-btns"> 
-                <button class="btn btn-outline-dark" id="cart-btn"><i class="bi bi-cart4"></i><span id="cart-count">(0)</span></button>
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item me-3"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item me-3"><a class="nav-link" href="#nosotros">Nosotros</a></li>
+                    <li class="nav-item dropdown me-3">
+                        <a class="nav-link dropdown-toggle" href="#" id="category-filter" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorías</a>
+                        <ul class="dropdown-menu" aria-labelledby="category-filter">
+                            <li><a class="dropdown-item category" href="#" data-category="men's clothing">Ropa de Hombre</a></li>
+                            <li><a class="dropdown-item category" href="#" data-category="women's clothing">Ropa de Mujer</a></li>
+                            <li><a class="dropdown-item category" href="#" data-category="jewelery">Joyería</a></li>
+                            <li><a class="dropdown-item category" href="#" data-category="electronics">Electrónica</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                </ul>
+                <div class="header-right d-flex align-items-center">
+                    <a href="javascript:void(0)" class="header-btn me-2" title="Perfil">
+                        <i class="bi bi-person-fill"></i>
+                    </a>
+                    <button class="btn btn-outline-dark" id="cart-btn"><i class="bi bi-cart4"></i><span id="cart-count">(0)</span></button>
+                </div>
             </div>
         </div>
     </nav>
@@ -100,9 +87,7 @@
 
     <div id="cart-sidebar">
         <h5>Carrito</h5>
-        <ul id="cart-items" class="list-group mb-3">
-            <!-- Productos del carrito se renderizarán aquí -->
-        </ul>
+        <ul id="cart-items" class="list-group mb-3"></ul>
         <button class="btn btn-danger mb-3" id="clear-cart">Vaciar carrito</button>
         <button class="btn btn-success" id="checkout">Finalizar compra</button>
     </div>
@@ -116,19 +101,16 @@
                     </a>
                     <p class="mt-2">Copyright © 1996-2024 ISTEA. Todos los derechos reservados.</p>
                 </div>
-                <div class="col-lg-4 col-md-12 mb-4" id="contacto"> <!-- Sección de contacto -->
+                <div class="col-lg-4 col-md-12 mb-4" id="contacto">
                     <h5>Contacto</h5>
                     <p>Teléfono: 0810-220-8148</p>
                     <p>Email: contacto@istea.com</p>
                 </div>
-                <div class="col-lg-4 col-md-12 mb-4">
-                    <!-- Espacio para más contenido si es necesario -->
-                </div>
+                <div class="col-lg-4 col-md-12 mb-4"></div>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts de librerías JS -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
